@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -17,5 +19,5 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Build project
+      - name: Build
         run: mvn clean install

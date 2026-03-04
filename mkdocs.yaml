@@ -1,7 +1,8 @@
-site_name: User Service Docs
+site_name: User Service
 
 nav:
   - Home: index.md
+  - API: api.md
 
 docs_dir: docs
 
