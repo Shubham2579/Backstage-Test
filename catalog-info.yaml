@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service
+  description: Simple Java user service
+  annotations:
+    github.com/project-slug: my-org/user-service
+
+spec:
+  type: service
+  lifecycle: production
+  owner: team-backend
+  providesApis:
+    - user-service-api
