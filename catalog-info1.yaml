@@ -34,3 +34,15 @@ spec:
   owner: group:default/guests
   definition:
     $text: ./api/openapi.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service
+  description: User management service
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/guests
