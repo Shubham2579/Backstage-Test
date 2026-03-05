@@ -46,3 +46,15 @@ spec:
   type: service
   lifecycle: production
   owner: group:default/guests
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: auth-service-api
+  description: Authentication service API
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/guests
