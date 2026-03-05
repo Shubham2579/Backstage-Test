@@ -2,8 +2,10 @@ site_name: Assessment Service
 
 nav:
   - Home: index.md
-  - API: api.md
-  - Dependencies: dependencies.md
+  - Assessment Service: assessment-service.md
+  - GenAI Service: genai-service.md
+  - Template Config: template-config.md
+  - Plugin: eclipse-plugin.md
 docs_dir: docs
 
 plugins:
