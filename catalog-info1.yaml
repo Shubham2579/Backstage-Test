@@ -1,0 +1,101 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: assessment-service
+  description: Assessment service responsible for handling assessments
+  annotations:
+    github.com/project-slug: my-org/assessment-service
+    backstage.io/techdocs-ref: dir:.
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+
+  providesApis:
+    - assessment-service-api
+
+  dependsOn:
+    - resource:default/assessment-db
+    - component:default/user-service
+
+  consumesApis:
+    - api:default/auth-service-api
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: assessment-service-api
+  description: API exposed by the assessment service
+
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+  definition:
+    $text: ./api/openapi.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service
+  description: User management service
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: auth-service-api
+  description: Authentication API used by services
+
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+  definition:
+    $text: ./api/auth-openapi.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: assessment-db
+  description: PostgreSQL database storing assessment data
+
+spec:
+  type: database
+  owner: group:default/team-transformation
+  system: examples
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: examples
+  description: Example services system
+
+spec:
+  owner: group:default/team-transformation
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: team-transformation
+  description: Transformation engineering team
+
+spec:
+  type: team
+  profile:
+    displayName: Team Transformation
