@@ -6,6 +6,15 @@ metadata:
   annotations:
     github.com/project-slug: my-org/assessment-service
     backstage.io/techdocs-ref: dir:.
+relations:
+  - type: ownedBy
+    targetRef: group:default/Team-Transformation
+  - type: partOf
+    targetRef: system:default/assessment-platform
+  - type: providesApi
+    targetRef: api:default/assessment-service-api
+  - type: dependsOn
+    targetRef: resource:default/assessment-db
 
 spec:
   type: service
