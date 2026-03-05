@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: assessment-service
-  description: Core service responsible for performing code assessments and generating modernization reports
+  description: Assessment service responsible for performing code assessments and generating modernization reports
   annotations:
     github.com/project-slug: CodeConnecter/Backstage-Test
     backstage.io/techdocs-ref: dir:.
@@ -10,7 +10,8 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: group:default/guests
+  owner: group:default/team-transformation
+  system: examples
 
   providesApis:
     - assessment-service-api
@@ -29,7 +30,8 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: group:default/guests
+  owner: group:default/team-transformation
+  system: examples
   definition:
     $text: ./api/openapi.yaml
 
@@ -43,7 +45,8 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: group:default/guests
+  owner: group:default/team-transformation
+  system: examples
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -55,7 +58,8 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: group:default/guests
+  owner: group:default/team-transformation
+  system: examples
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -67,7 +71,8 @@ metadata:
 spec:
   type: application
   lifecycle: production
-  owner: group:default/guests
+  owner: group:default/team-transformation
+  system: examples
 
   dependsOn:
     - component:default/assessment-service
