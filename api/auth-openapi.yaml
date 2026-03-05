@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: Authentication Service API
+  version: 1.0.0
+  description: API for authentication and authorization
+
+servers:
+  - url: http://localhost:8082
+
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        "200":
+          description: Authentication successful
+
+  /auth/validate:
+    post:
+      summary: Validate token
+      responses:
+        "200":
+          description: Token valid

@@ -1,12 +1,65 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   title: Assessment Service API
   version: 1.0.0
+  description: API for managing assessments
+
+servers:
+  - url: http://localhost:8080
 
 paths:
-  /users:
+  /assessments:
     get:
-      summary: Get users
+      summary: Get all assessments
       responses:
         "200":
-          description: successful response
+          description: List of assessments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Assessment"
+
+    post:
+      summary: Create a new assessment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Assessment"
+      responses:
+        "201":
+          description: Assessment created
+
+  /assessments/{id}:
+    get:
+      summary: Get assessment by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Assessment details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Assessment"
+
+components:
+  schemas:
+    Assessment:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        score:
+          type: number

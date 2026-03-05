@@ -1,0 +1,29 @@
+openapi: 3.0.3
+info:
+  title: User Service API
+  version: 1.0.0
+  description: API for user management
+
+servers:
+  - url: http://localhost:8081
+
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        "200":
+          description: List of users
+
+  /users/{id}:
+    get:
+      summary: Get user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: User details
