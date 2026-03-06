@@ -2,9 +2,12 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: assessment-service
-  description: Assessment service responsible for performing code assessments and generating modernization reports
+  description: Assessment service responsible for handling assessments
   annotations:
+    # 1. This enables the "Source" on "GitHub"
     github.com/project-slug: CodeConnecter/Backstage-Test
+    # 2. This enables the Azure Pipelines tab
+    dev.azure.com/project-repo-build: 'YourAzureOrg/YourProjectName/YourPipelineName'
     backstage.io/techdocs-ref: dir:.
 
 spec:
@@ -17,15 +20,17 @@ spec:
     - assessment-service-api
 
   dependsOn:
-    - component:default/genai-service
-    - component:default/template-config
+    - component:default/user-service
+
+  consumesApis:
+    - api:default/auth-service-api
 
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: assessment-service-api
-  description: REST API exposed by the Assessment Service
+  description: API exposed by the assessment service
 
 spec:
   type: openapi
@@ -39,8 +44,8 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: genai-service
-  description: AI service responsible for analyzing code and generating migration insights
+  name: user-service
+  description: User management service
 
 spec:
   type: service
@@ -52,29 +57,11 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: template-config
-  description: Template configuration service used to generate reports and migration outputs
+  name: auth-service-api
+  description: Authentication service API
 
 spec:
   type: service
   lifecycle: production
   owner: group:default/team-transformation
   system: examples
-
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: eclipse-plugin
-  description: Eclipse IDE plugin used by developers to run modernization assessments
-
-spec:
-  type: application
-  lifecycle: production
-  owner: group:default/team-transformation
-  system: examples
-
-  dependsOn:
-    - component:default/assessment-service
-    - component:default/genai-service
-    - component:default/template-config

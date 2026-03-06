@@ -2,9 +2,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: assessment-service
-  description: Assessment service
+  description: Assessment service responsible for performing code assessments and generating modernization reports
   annotations:
-    github.com/project-slug: my-org/assessment-service
+    github.com/project-slug: CodeConnecter/Backstage-Test
     backstage.io/techdocs-ref: dir:.
 
 spec:
@@ -12,15 +12,20 @@ spec:
   lifecycle: production
   owner: group:default/team-transformation
   system: examples
+
   providesApis:
     - assessment-service-api
+
+  dependsOn:
+    - component:default/genai-service
+    - component:default/template-config
 
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: assessment-service-api
-  description: API for assessment service
+  description: REST API exposed by the Assessment Service
 
 spec:
   type: openapi
@@ -29,3 +34,47 @@ spec:
   system: examples
   definition:
     $text: ./api/openapi.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: genai-service
+  description: AI service responsible for analyzing code and generating migration insights
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: template-config
+  description: Template configuration service used to generate reports and migration outputs
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: eclipse-plugin
+  description: Eclipse IDE plugin used by developers to run modernization assessments
+
+spec:
+  type: application
+  lifecycle: production
+  owner: group:default/team-transformation
+  system: examples
+
+  dependsOn:
+    - component:default/assessment-service
+    - component:default/genai-service
+    - component:default/template-config
