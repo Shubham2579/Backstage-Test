@@ -11,7 +11,7 @@ spec:
   type: service
   lifecycle: production
   owner: group:default/team-transformation
-  system: examples
+  system: unisys
 
   providesApis:
     - assessment-service-api
@@ -31,7 +31,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: group:default/team-transformation
-  system: examples
+  system: unisys
   definition:
     $text: ./api/openapi.yaml
 
@@ -46,7 +46,7 @@ spec:
   type: service
   lifecycle: production
   owner: group:default/team-transformation
-  system: examples
+  system: unisys
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -59,7 +59,7 @@ spec:
   type: service
   lifecycle: production
   owner: group:default/team-transformation
-  system: examples
+  system: unisys
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -72,7 +72,7 @@ spec:
   type: application
   lifecycle: production
   owner: group:default/team-transformation
-  system: examples
+  system: unisys
 
   dependsOn:
     - component:default/assessment-service
