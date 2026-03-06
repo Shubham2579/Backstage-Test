@@ -6,6 +6,8 @@ metadata:
   annotations:
     github.com/project-slug: CodeConnecter/Backstage-Test
     backstage.io/techdocs-ref: dir:.
+    github.com/workflows-ref: .github/workflows
+    cicd.backstage.io/system: github-actions
 
 spec:
   type: service
