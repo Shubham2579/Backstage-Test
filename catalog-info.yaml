@@ -4,7 +4,7 @@ metadata:
   name: assessment-service
   description: Assessment service responsible for performing code assessments and generating modernization reports
   annotations:
-    github.com/project-slug: CodeConnecter/Backstage-Test
+    github.com/project-slug: Shubham2579/Backstage-Test
     backstage.io/techdocs-ref: dir:.
     github.com/workflows-ref: .github/workflows
     cicd.backstage.io/system: github-actions
@@ -43,6 +43,10 @@ kind: Component
 metadata:
   name: genai-service
   description: AI service responsible for analyzing code and generating migration insights
+  annotations:
+    github.com/project-slug: Shubham2579/Backstage-Test
+    github.com/workflows-ref: .github/workflows
+    cicd.backstage.io/system: github-actions
 
 spec:
   type: service
@@ -56,6 +60,10 @@ kind: Component
 metadata:
   name: template-config
   description: Template configuration service used to generate reports and migration outputs
+  annotations:
+    github.com/project-slug: Shubham2579/Backstage-Test
+    github.com/workflows-ref: .github/workflows
+    cicd.backstage.io/system: github-actions
 
 spec:
   type: service
@@ -69,6 +77,10 @@ kind: Component
 metadata:
   name: eclipse-plugin
   description: Eclipse IDE plugin used by developers to run modernization assessments
+  annotations:
+    github.com/project-slug: Shubham2579/Backstage-Test
+    github.com/workflows-ref: .github/workflows
+    cicd.backstage.io/system: github-actions
 
 spec:
   type: application
