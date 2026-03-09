@@ -6,8 +6,6 @@ metadata:
   annotations:
     github.com/project-slug: Shubham2579/Backstage-Test
     backstage.io/techdocs-ref: dir:.
-    github.com/workflows-ref: .github/workflows
-    cicd.backstage.io/system: github-actions
 
 spec:
   type: service
@@ -45,8 +43,6 @@ metadata:
   description: AI service responsible for analyzing code and generating migration insights
   annotations:
     github.com/project-slug: Shubham2579/Backstage-Test
-    github.com/workflows-ref: .github/workflows
-    cicd.backstage.io/system: github-actions
 
 spec:
   type: service
@@ -62,8 +58,6 @@ metadata:
   description: Template configuration service used to generate reports and migration outputs
   annotations:
     github.com/project-slug: Shubham2579/Backstage-Test
-    github.com/workflows-ref: .github/workflows
-    cicd.backstage.io/system: github-actions
 
 spec:
   type: service
@@ -79,8 +73,6 @@ metadata:
   description: Eclipse IDE plugin used by developers to run modernization assessments
   annotations:
     github.com/project-slug: Shubham2579/Backstage-Test
-    github.com/workflows-ref: .github/workflows
-    cicd.backstage.io/system: github-actions
 
 spec:
   type: application
